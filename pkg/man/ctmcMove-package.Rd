@@ -65,7 +65,7 @@ Biological, and Environmental Statistics, 2010, 15, 523-538
 ## Steps:
 ##  1. Fit CRAWL to telemetry data (not done here)
 ##  2. Create covariate raster objects (the CTMC will be on the raster
-grid cells)
+##     grid cells)
 ##  3. Impute a CRAWL path
 ##  4. Turn quasi-continuous CRAWL path into a CTMC discrete-space path
 ##  5. Turn discrete-space path into latent Poisson GLM format
