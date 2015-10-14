@@ -89,7 +89,7 @@ plot(xyt[,1:2],type="b")
 str(cov.df)
 
 NN=sqrt(nrow(cov.df$X))
-sst=matrix(seal$cov.df$X$sst,NN,byrow=T)
+sst=matrix(seal$cov.df$X$sst,NN,byrow=TRUE)
 sst=sst[NN:1,]
 sst=raster(sst,xmn=min(seal$cov.df$X$x),xmx=max(seal$cov.df$X$x),ymn=min(seal$cov.df$X$y),ymx=max(seal$cov.df$X$y))
 
@@ -97,12 +97,12 @@ sst=raster(sst,xmn=min(seal$cov.df$X$x),xmx=max(seal$cov.df$X$x),ymn=min(seal$co
 crs(sst)="+proj=longlat +datum=WGS84"
 plot(sst)
 
-chA=matrix(seal$cov.df$X$chA,NN,byrow=T)
+chA=matrix(seal$cov.df$X$chA,NN,byrow=TRUE)
 chA=chA[NN:1,]
 chA=raster(chA,xmn=min(seal$cov.df$X$x),xmx=max(seal$cov.df$X$x),ymn=min(seal$cov.df$X$y),ymx=max(seal$cov.df$X$y))
 crs(chA)="+proj=longlat +datum=WGS84"
 
-pro=matrix(seal$cov.df$X$pro,NN,byrow=T)
+pro=matrix(seal$cov.df$X$pro,NN,byrow=TRUE)
 pro=pro[NN:1,]
 npp=raster(pro,xmn=min(seal$cov.df$X$x),xmx=max(seal$cov.df$X$x),ymn=min(seal$cov.df$X$y),ymx=max(seal$cov.df$X$y))
 crs(npp)="+proj=longlat +datum=WGS84"
@@ -200,7 +200,6 @@ summary(fit)
 ##    Hanks, E.; Hooten, M.; Johnson, D. & Sterling, J. Velocity-Based
 ##    Movement Modeling for Individual and Population Level Inference
 ##    PLoS ONE, Public Library of Science, 2011, 6, e22795
-
 ##
 
 library(mgcv)
