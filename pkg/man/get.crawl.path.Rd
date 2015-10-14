@@ -33,7 +33,9 @@ Legacy.  Not used.
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+  This is a wrapper function for CRAWL simulation functions and depends
+  on a valid crawl sim.obj.
+  %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
   \item{t}{A vector of times at which the CTCRW path is sampled}
@@ -45,20 +47,23 @@ Legacy.  Not used.
 %% ...
 }
 \references{
+Hanks, E. M.; Hooten, M. B. & Alldredge, M. W. Continuous-time
+Discrete-space Models for Animal Movement The Annals of Applied
+Statistics, 2015, 9, 145-165
 %% ~put references to the literature/web site here ~
 }
 \author{
 Ephraim M. Hanks
 }
-\note{
-%%  ~~further notes~~
-}
+%% \note{
+%% %%  ~~further notes~~
+%% }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
+%% \seealso{
+%% %% ~~objects to See Also as \code{\link{help}}, ~~~
+%% }
 \examples{
 ## For example code, do
 ##

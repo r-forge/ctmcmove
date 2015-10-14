@@ -1,18 +1,18 @@
-\name{ctmcMove-package}
-\alias{ctmcMove-package}
-\alias{ctmcMove}
+\name{ctmcmove-package}
+\alias{ctmcmove-package}
+\alias{ctmcmove}
 \docType{package}
 \title{
-\packageTitle{ctmcMove}
+\packageTitle{ctmcmove}
 }
 \description{
-\packageDescription{ctmcMove}
+\packageDescription{ctmcmove}
 }
 \details{
 
 The DESCRIPTION file:
-\packageDESCRIPTION{ctmcMove}
-\packageIndices{ctmcMove}
+\packageDESCRIPTION{ctmcmove}
+\packageIndices{ctmcmove}
 Typical work flow for analysis of telemetry / GPS movement data:
 
   1. Fit a CTCRW movement model to telemetry xyt data using the "crawl"
@@ -37,9 +37,9 @@ Typical work flow for analysis of telemetry / GPS movement data:
 
 }
 \author{
-\packageAuthor{ctmcMove}
+\packageAuthor{ctmcmove}
 
-Maintainer: \packageMaintainer{ctmcMove}
+Maintainer: \packageMaintainer{ctmcmove}
 }
 \references{
 Hanks, E. M.; Hooten, M. B. & Alldredge, M. W. Continuous-time
@@ -56,8 +56,8 @@ Biological, and Environmental Statistics, 2010, 15, 523-538
 
 }
 \keyword{ Animal Movement }
-\seealso{
-}
+%% \seealso{
+%% }
 \examples{
 ##
 ## Example of using a CTMC model for movement
@@ -72,7 +72,7 @@ Biological, and Environmental Statistics, 2010, 15, 523-538
 ##  6. Fit a Poisson GLM model to the data
 ##
 
-library(ctmcMove)
+library(ctmcmove)
 
 data(seal)
 sim.obj=seal$sim.obj
@@ -91,7 +91,8 @@ str(cov.df)
 NN=sqrt(nrow(cov.df$X))
 sst=matrix(seal$cov.df$X$sst,NN,byrow=TRUE)
 sst=sst[NN:1,]
-sst=raster(sst,xmn=min(seal$cov.df$X$x),xmx=max(seal$cov.df$X$x),ymn=min(seal$cov.df$X$y),ymx=max(seal$cov.df$X$y))
+sst=raster(sst,xmn=min(seal$cov.df$X$x),xmx=max(seal$cov.df$X$x),
+    ymn=min(seal$cov.df$X$y),ymx=max(seal$cov.df$X$y))
 
 
 crs(sst)="+proj=longlat +datum=WGS84"
@@ -99,12 +100,14 @@ plot(sst)
 
 chA=matrix(seal$cov.df$X$chA,NN,byrow=TRUE)
 chA=chA[NN:1,]
-chA=raster(chA,xmn=min(seal$cov.df$X$x),xmx=max(seal$cov.df$X$x),ymn=min(seal$cov.df$X$y),ymx=max(seal$cov.df$X$y))
+chA=raster(chA,xmn=min(seal$cov.df$X$x),xmx=max(seal$cov.df$X$x),
+    ymn=min(seal$cov.df$X$y),ymx=max(seal$cov.df$X$y))
 crs(chA)="+proj=longlat +datum=WGS84"
 
 pro=matrix(seal$cov.df$X$pro,NN,byrow=TRUE)
 pro=pro[NN:1,]
-npp=raster(pro,xmn=min(seal$cov.df$X$x),xmx=max(seal$cov.df$X$x),ymn=min(seal$cov.df$X$y),ymx=max(seal$cov.df$X$y))
+npp=raster(pro,xmn=min(seal$cov.df$X$x),xmx=max(seal$cov.df$X$x),
+    ymn=min(seal$cov.df$X$y),ymx=max(seal$cov.df$X$y))
 crs(npp)="+proj=longlat +datum=WGS84"
 
 
@@ -130,7 +133,8 @@ plot(grad.stack)
 ## 3 Impute Quasi-Continuous Path Using Crawl
 ##
 
-path=get.crawl.path(seal$sim.obj,int,mintime=min(sim.obj$datetime),maxtime=max(sim.obj$datetime))
+path=get.crawl.path(seal$sim.obj,int,
+     mintime=min(sim.obj$datetime),maxtime=max(sim.obj$datetime))
 
 str(path)
 plot(sst)
@@ -140,7 +144,8 @@ points(xyt[,1:2],type="b",pch=2)
 
 plot(sst)
 for(i in 1:15){
-    path=get.crawl.path(seal$sim.obj,int,mintime=min(sim.obj$datetime),maxtime=max(sim.obj$datetime))
+    path=get.crawl.path(seal$sim.obj,int,
+         mintime=min(sim.obj$datetime),maxtime=max(sim.obj$datetime))
     points(path$xy,col=i,type="l")
 }
 points(xyt[,1:2],type="b",pch=20,cex=2,lwd=2)
@@ -166,7 +171,8 @@ str(glm.data)
 
 ## now repeat 3-5 for 10 imputations
 for(i in 2:10){
-    path=get.crawl.path(seal$sim.obj,int,mintime=min(sim.obj$datetime),maxtime=max(sim.obj$datetime))
+    path=get.crawl.path(seal$sim.obj,int,
+         mintime=min(sim.obj$datetime),maxtime=max(sim.obj$datetime))
     ctmc=path2ctmc(path$xy,path$t,int)
     glm.data=rbind(glm.data,ctmc2glm(ctmc,loc.stack,grad.stack))
 }
@@ -188,7 +194,8 @@ summary(glm.data)
 
 
 
-fit=glm(z~cha+npp+sst+crw+d2r+sst.loc,weights=rep(1/10,nrow(glm.data)),family="poisson",offset=log(tau),data=glm.data)
+fit=glm(z~cha+npp+sst+crw+d2r+sst.loc,
+    weights=rep(1/10,nrow(glm.data)),family="poisson",offset=log(tau),data=glm.data)
 summary(fit)
 
 ##
@@ -204,7 +211,8 @@ summary(fit)
 
 library(mgcv)
 
-fit=gam(z~cha+npp+sst+crw++s(t,by=-d2r),weights=rep(1/10,nrow(glm.data)),family="poisson",offset=log(tau),data=glm.data)
+fit=gam(z~cha+npp+sst+crw++s(t,by=-d2r),
+    weights=rep(1/10,nrow(glm.data)),family="poisson",offset=log(tau),data=glm.data)
 summary(fit)
 plot(fit)
 

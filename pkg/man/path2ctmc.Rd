@@ -31,7 +31,10 @@ path2ctmc(xy, t, rast)
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+  This takes a xyt path and turns it into a list of the embedded chain
+  and residence times of a continuous time Markov chain walk on the
+  graph.  "Diagonal" transitions are fixed with linear interpolation.
+  %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
   \item{ec}{A vector of the sequential grid cells (the embedded chain)
@@ -47,20 +50,25 @@ path2ctmc(xy, t, rast)
 %% ...
 }
 \references{
+  Hanks, E. M.; Hooten, M. B. & Alldredge, M. W. Continuous-time
+Discrete-space Models for Animal Movement The Annals of Applied
+Statistics, 2015, 9, 145-165
+
 %% ~put references to the literature/web site here ~
 }
 \author{
-%%  ~~who you are~~
+  Ephraim M. Hanks
+  %%  ~~who you are~~
 }
-\note{
-%%  ~~further notes~~
-}
+%% \note{
+%% %%  ~~further notes~~
+%% }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
+%% \seealso{
+%% %% ~~objects to See Also as \code{\link{help}}, ~~~
+%% }
 \examples{
 ## For example code, do
 ##

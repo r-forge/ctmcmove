@@ -97,14 +97,23 @@ List of 10
  $ pred.times: num [1:5258] 36741 36741 36741 36741 36741 ...
 }
 \details{
-%%  ~~ If necessary, more details than the __description__ above ~~
+CRAWL sim.obj and xyt locations from ARGOS telemetry data for one NFS
+  near the Pribilof islands.
+  %%  ~~ If necessary, more details than the __description__ above ~~
 }
 \source{
-%%  ~~ reference to a publication or URL from which the data were obtained ~~
+Hanks, E.; Hooten, M.; Johnson, D. & Sterling, J. Velocity-Based
+Movement Modeling for Individual and Population Level Inference PLoS
+ONE, Public Library of Science, 2011, 6, e22795
+
+  %%  ~~ reference to a publication or URL from which the data were obtained ~~
 }
-\references{
-%%  ~~ possibly secondary sources and usages ~~
-}
+%% \references{
+%% Hanks, E.; Hooten, M.; Johnson, D. & Sterling, J. Velocity-Based
+%% Movement Modeling for Individual and Population Level Inference PLoS
+%% ONE, Public Library of Science, 2011, 6, e22795
+%% %%  ~~ possibly secondary sources and usages ~~
+%% }
 \examples{
 ## For example code, do
 ##

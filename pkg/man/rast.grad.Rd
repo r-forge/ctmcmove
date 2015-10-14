@@ -21,7 +21,8 @@ rast.grad(rasterstack)
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+  The gradient is computed using the "terrain" function in raster.
+  %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
   \item{xy}{A matrix of x and y coordinates of each cell in the raster
@@ -42,21 +43,24 @@ rast.grad(rasterstack)
 %% ...
 }
 \references{
+Hanks, E. M.; Hooten, M. B. & Alldredge, M. W. Continuous-time
+Discrete-space Models for Animal Movement The Annals of Applied
+Statistics, 2015, 9, 145-165
 %% ~put references to the literature/web site here ~
 }
 \author{
   Ephraim M. Hanks
 %%  ~~who you are~~
 }
-\note{
-%%  ~~further notes~~
-}
+%% \note{
+%% %%  ~~further notes~~
+%% }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
+%% \seealso{
+%% %% ~~objects to See Also as \code{\link{help}}, ~~~
+%% }
 \examples{
 ## For example code, do
 ##

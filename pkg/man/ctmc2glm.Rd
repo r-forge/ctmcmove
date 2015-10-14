@@ -9,7 +9,8 @@ Convert a "ctmc" object into Poisson glm format.%%  ~~function to do ... ~~
   Poisson GLM software (like glm in R). 
 }
 \usage{
-ctmc2glm(ctmc, stack.static, stack.grad, crw = TRUE, normalize.gradients = FALSE, grad.point.decreasing = TRUE)
+ctmc2glm(ctmc, stack.static, stack.grad, crw = TRUE,
+    normalize.gradients = FALSE, grad.point.decreasing = TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -41,6 +42,8 @@ of the covariate (like a true gradient).
   }
 }
 \details{
+  This code creates one data row for each possible transition from each
+  grid cell visited by the CTMC path.
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
@@ -59,20 +62,24 @@ of the covariate (like a true gradient).
 %% ...
 }
 \references{
+Hanks, E. M.; Hooten, M. B. & Alldredge, M. W. Continuous-time
+Discrete-space Models for Animal Movement The Annals of Applied
+Statistics, 2015, 9, 145-165
 %% ~put references to the literature/web site here ~
 }
 \author{
-%%  ~~who you are~~
+  Ephraim M. Hanks
+  %%  ~~who you are~~
 }
-\note{
-%%  ~~further notes~~
-}
+%% \note{
+%% %%  ~~further notes~~
+%% }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
+%% \seealso{
+%% %% ~~objects to See Also as \code{\link{help}}, ~~~
+%% }
 \examples{
 ## For example code, do
 ##
